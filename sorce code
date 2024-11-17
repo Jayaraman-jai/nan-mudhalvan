@@ -1,0 +1,166 @@
+Package com.example.travelapp
+Import android.content.Context
+Import android.content.Intent
+Import android.os.Bundle
+Import androidx.activity.ComponentActivity
+Import androidx.activity.compose.setContent
+Import androidx.compose.foundation.Image
+Import androidx.compose.foundation.clickable
+Import androidx.compose.foundation.layout.*
+Import androidx.compose.foundation.rememberScrollState
+Import androidx.compose.foundation.verticalScroll
+Import androidx.compose.material.Card
+Import androidx.compose.material.Text
+Import androidx.compose.runtime.Composable
+Import androidx.compose.ui.Alignment
+Import androidx.compose.ui.Modifier
+Import androidx.compose.ui.draw.scale
+Import androidx.compose.ui.graphics.Color
+Import androidx.compose.ui.res.painterResource
+Import androidx.compose.ui.res.stringResource
+Import androidx.compose.ui.text.font.FontFamily
+Import androidx.compose.ui.text.font.FontWeight
+Import androidx.compose.ui.text.style.TextAlign
+Import androidx.compose.ui.unit.dp
+Import androidx.compose.ui.unit.sp
+Class MainActivity : ComponentActivity() {
+ Override fun onCreate(savedInstanceState: Bundle?) {
+ Super.onCreate(savedInstanceState)
+ setContent {
+ TravelApp(this)
+ }
+ }
+ @Composable
+ Fun TravelApp(context: Context) {
+ Column(
+ Modifier = Modifier
+ .padding(20.dp)
+ .verticalScroll(rememberScrollState())
+ ) {
+ Text(
+ fontSize = 40.sp,
+ color = Color(android.graphics.Color.rgb(120, 40, 251)),
+ fontFamily = FontFamily.Cursive,
+ text = “Wanderlust Travel”
+ )
+ Spacer(modifier = Modifier.height(20.dp))
+ // 01
+ Card(
+ Modifier = Modifier
+ .fillMaxWidth()
+ .height(250.dp)
+ .clickable {
+ Context.startActivity(
+ Intent(context, BaliActivity::class.java)
+ )
+ },
+ Elevation = 8.dp
+ )
+ {
+ Column(
+ horizontalAlignment = Alignment.CenterHorizontally
+ ) {
+ Image(
+ painterResource(id = R.drawable.bali), contentDescription = “”,
+ modifier = Modifier
+ .height(150.dp)
+ .scale(scaleX = 1.2F, scaleY = 1F)
+ )
+ Text(
+ Text = stringResource(id = R.string.place_1),
+ fontSize = 18.sp
+ )
+ Text(
+ Text = stringResource(id = R.string.description),
+ fontWeight = FontWeight.Light,
+ fontSize = 16.sp,
+ textAlign = TextAlign.Center,
+ )
+ Text(
+ Text = stringResource(id = R.string.plan), color = Color.Gray,
+ fontSize = 16.sp
+ )
+ }
+ }
+ Spacer(modifier = Modifier.height(20.dp))
+ //02
+ Card(
+ Modifier = Modifier
+ .fillMaxWidth()
+ .height(250.dp)
+ .clickable {
+ Context.startActivity(
+ Intent(context, ParisActivity::class.java)
+ )
+ },
+ Elevation = 8.dp
+ )
+ {
+ Column(
+ horizontalAlignment = Alignment.CenterHorizontally
+ ) {
+ Image(
+ painterResource(id = R.drawable.paris), contentDescription = “”,
+ modifier = Modifier
+ .height(150.dp)
+ .scale(scaleX = 1.2F, scaleY = 1F)
+ )
+ Text(
+ Text = stringResource(id = R.string.place_2),
+ fontSize = 18.sp
+ )
+ Text(
+ Text = stringResource(id = R.string.description),
+ fontWeight = FontWeight.Light,
+ fontSize = 16.sp,
+ textAlign = TextAlign.Center,
+ )
+ Text(
+ Text = stringResource(id = R.string.plan), color = Color.Gray,
+ fontSize = 16.sp
+ )
+ }
+ }
+ Spacer(modifier = Modifier.height(20.dp))
+ //03
+ Card(
+ Modifier = Modifier
+ .fillMaxWidth()
+ .height(250.dp)
+ .clickable {
+ Context.startActivity(
+ Intent(context, SingaporeActivity::class.java)
+ )
+ },
+ Elevation = 8.dp
+ )
+ {
+ Column(
+ horizontalAlignment = Alignment.CenterHorizontally
+ ) {
+ Image(
+ painterResource(id = R.drawable.singapore), contentDescription = “”,
+ modifier = Modifier
+ .height(150.dp)
+ .scale(scaleX = 1.2F, scaleY = 1F)
+ )
+ Text(
+ Text = stringResource(id = R.string.place_3),
+ fontSize = 18.sp
+ )
+ Text(
+ Text = stringResource(id = R.string.description),
+ fontWeight = FontWeight.Light,
+ fontSize = 16.sp,
+ textAlign = TextAlign.Center,
+ )
+ Text(
+ Text = stringResource(id = R.string.plan), color = Color.Gray,
+ fontSize = 16.sp
+ )
+ }
+ }
+ Spacer(modifier = Modifier.height(20.dp))
+ }
+ }
+}
